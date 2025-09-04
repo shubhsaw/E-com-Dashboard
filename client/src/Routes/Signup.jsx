@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Signup.module.css'
 import { useNavigate } from 'react-router-dom';
 const Signup = () => {
@@ -8,6 +8,12 @@ const Signup = () => {
   const [pass, setPass] = useState("")
   const [formData, setFormData] = useState(null)
   const navigate = useNavigate();
+  const auth=localStorage.getItem('user')
+  useEffect(() => {
+    if (auth) {
+      navigate('/');
+    }
+  }, [auth])
   async function handleSubmit(e) {
     e.preventDefault()
 
