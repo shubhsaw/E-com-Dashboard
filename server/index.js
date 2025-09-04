@@ -16,7 +16,7 @@ app.post("/signup", async (req, res) => {
     const newUser = new User({ email, firstname, lastname, password });
     await newUser.save();
     
-    res.json({ message: `User saved successfully! ${newUser}`});
+    res.json(newUser);
   } catch (err) {
     res.status(500).json({ error: "Something went wrong" });
   }

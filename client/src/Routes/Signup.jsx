@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import styles from './Signup.module.css'
-
+import { useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [email, setEmail] = useState("")
   const [firstN, setFirstN] = useState("")
   const [lastN, setLastN] = useState("")
   const [pass, setPass] = useState("")
   const [formData, setFormData] = useState(null)
-
-async  function handleSubmit(e) {
+  const navigate = useNavigate();
+  async function handleSubmit(e) {
     e.preventDefault()
 
     const newData = {
@@ -21,19 +21,26 @@ async  function handleSubmit(e) {
     setFormData(newData)
     console.log(newData)
 
-      try {
-    const res = await fetch("http://localhost:5000/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newData),
-    });
-        const result = await res.json();
-    console.log(result);
+    try {
+      let result = await fetch("http://localhost:5000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newData),
+      });
+      result = await result.json();
+      console.log(result);
 
-    alert(result.message); // success message
-  } catch (err) {
-    console.error("Error:", err);
-  }
+      //storing Data in localStorage
+      localStorage.setItem("user", JSON.stringify(result));
+
+      // redirect to Home page after successful signup
+      if(result){
+        navigate('/');
+      }
+      
+    } catch (err) {
+      console.error("Error:", err);
+    }
 
 
     // reset fields
