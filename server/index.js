@@ -26,7 +26,7 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   
   if(req.body.email && req.body.password){
   try{
@@ -42,4 +42,5 @@ app.post("/login", async (req, res) => {
   }
   }
 });
+
 app.listen(5000, () => console.log(`Server running on port 5000`));

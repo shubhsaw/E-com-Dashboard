@@ -5,6 +5,7 @@ import './App.css'
 const Home = () => {
   const auth=localStorage.getItem('user')
 
+  //function to clear localStorage
   function logout(){
     let log=confirm("Are you sure you want to logout?");
     if(log){
@@ -21,7 +22,14 @@ const Home = () => {
         <Link to="/UpdateProduct">Update Product</Link>
         
         <Link to="/Profile">Profile</Link>
-        {auth?<Link onClick={logout} to="/signup">Log out</Link>: <Link to="/Signup">Sign-Up</Link>}
+
+        { 
+        auth
+        ?<Link onClick={logout} to="/signup">Log out</Link>
+        : <><Link to="/Signup">Sign-Up</Link>
+        <Link to="/login">Login</Link></>}
+        
+
         </div>
       <h1>Landing Page / Home </h1>
     </>

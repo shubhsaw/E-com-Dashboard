@@ -8,6 +8,7 @@ import Profile from './Profile'
 import Home from '../Home'
 import Signup from './Signup'
 import PrivateComponent from './PrivateComponent'
+import Login from './Login/Login'
 const NavRoutes = () => {
   return (
     <>
@@ -23,6 +24,8 @@ const NavRoutes = () => {
         <Route path="/Profile" element={<Profile/>}/>
         </Route>
         <Route path='/Signup' element={<Signup/>}/>
+        <Route path='/login' element={<Login/>}/>
+
     </Routes>
     </BrowserRouter>
     </>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Signup.module.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [email, setEmail] = useState("")
   const [firstN, setFirstN] = useState("")
@@ -58,12 +58,13 @@ const Signup = () => {
 
   return (
     <div className={styles.signupContainer}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form_signup}>
         <h1 className={styles.title}>Signup</h1>
 
         <div className={styles.inputbox}>
-          <label>Work Email</label>
+          <label className={styles.label}>Work Email</label>
           <input
+            className={styles.email}
             type="email"
             placeholder="name@work.com"
             value={email}
@@ -73,8 +74,9 @@ const Signup = () => {
 
         <div className={styles.namebox}>
           <div>
-            <label htmlFor="firstName">First Name</label>
+            <label className={styles.label} htmlFor="firstName">First Name</label>
             <input
+              className={styles.firstname}
               type="text"
               id="firstName"
               placeholder="First Name"
@@ -83,8 +85,9 @@ const Signup = () => {
             />
           </div>
           <div>
-            <label htmlFor="lastName">Last Name</label>
+            <label className={styles.label} htmlFor="lastName">Last Name</label>
             <input
+              className={styles.lastname}
               type="text"
               id="lastName"
               placeholder="Last Name"
@@ -95,8 +98,9 @@ const Signup = () => {
         </div>
 
         <div className={styles.inputbox}>
-          <label>Password</label>
+          <label className={styles.label} >Password</label>
           <input
+            className={styles.password}
             type="password"
             placeholder="Password"
             value={pass}
@@ -108,17 +112,10 @@ const Signup = () => {
           Continue with Email
         </button>
 
-        <p className={styles.terms}>
-          By signing up, you agree to our <a href="#">Terms of Use</a> and{" "}
-          <a href="#">Privacy Policy</a>.
-        </p>
-
-        <p className={styles.alt}>
-          You can also continue with <a href="#">Enterprise SAML SSO</a>
-        </p>
+        
 
         <p className={styles.signin}>
-          Already have an account? <a href="#">Sign In</a>
+          Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </form>
     </div>

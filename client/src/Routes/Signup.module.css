@@ -14,7 +14,7 @@
   padding: 20px;
 }
 
-form {
+.form_signup {
   background: white;
   padding: 40px 35px;
   border-radius: 12px;
@@ -36,16 +36,15 @@ form {
 }
 
 /* Labels & Inputs */
-label {
+.label {
   font-size: 14px;
   font-weight: 500;
   color: #333;
   margin-bottom: 6px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.firstname,.lastname,
+.email,.password{
   width: 100%;
   padding: 12px;
   background: #f9fafc;
