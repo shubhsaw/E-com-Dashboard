@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Product from './Products'
-import AddProduct from './AddProduct'
+// import AddProduct from './AddProduct'
 import UpdateProduct from './UpdateProduct'
 
 import Profile from './Profile'
@@ -9,6 +9,7 @@ import Home from '../Home'
 import Signup from './Signup'
 import PrivateComponent from './PrivateComponent'
 import Login from './Login/Login'
+import AddProduct from './Add product/AddProduct'
 const NavRoutes = () => {
   return (
     <>
