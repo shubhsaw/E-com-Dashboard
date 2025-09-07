@@ -2,6 +2,7 @@ import React from 'react'
 // import Link from 'react-router-dom'
 import {BrowserRouter, Route, Routes, Link, useNavigate} from 'react-router-dom'
 import './App.css'
+import image from '../public/ecom white.png' 
 const Home = () => {
   const auth=localStorage.getItem('user')
 
@@ -17,6 +18,7 @@ const Home = () => {
     <>
 
         <div id='dashboard'>
+          <img src={image} alt="logo" id='home_logo' />
         <Link to="/Product">Product</Link>
         <Link to="/AddProduct">Add Product</Link>
         <Link to="/UpdateProduct">Update Product</Link>

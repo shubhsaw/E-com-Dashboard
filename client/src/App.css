@@ -16,3 +16,8 @@
     color: rgb(18, 76, 99);
     /* background-color: #ced0db; */
 }
+#home_logo{
+    height: 57px;
+    width: 80px;
+    border-radius: 50%;
+}
