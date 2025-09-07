@@ -40,7 +40,7 @@ const Signup = () => {
       localStorage.setItem("user", JSON.stringify(result));
 
       // redirect to Home page after successful signup
-      if(result){
+      if(result._id){
         navigate('/');
       }
       

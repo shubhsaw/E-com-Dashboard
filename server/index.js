@@ -3,7 +3,7 @@ const mongoose=require('mongoose')
 const cors=require('cors')
 //Importin Database
 const User=require('./users');
-
+const Product=require('./product')
 const app=express();
 
 app.use(cors())
@@ -13,7 +13,7 @@ app.post("/signup", async (req, res) => {
   try {
     const { email, firstname, lastname, password } = req.body;
 
-    const newUser = new User({ email, firstname, lastname, password });
+    let newUser = new User({ email, firstname, lastname, password });
     await newUser.save();
     //hidding password
     newUser=newUser.toObject();
@@ -42,5 +42,17 @@ app.post("/login", async (req, res) => {
   }
   }
 });
+
+app.post('/AddProduct',async (req,resp)=>{
+  try{
+  const { name, price,company,desc,rating}=req.body;
+  let newProduct=new Product({name,price,company,desc,rating})
+  await newProduct.save();
+  resp.json(newProduct)
+  }catch(err){
+    console.log(err);
+    
+  }
+})
 
 app.listen(5000, () => console.log(`Server running on port 5000`));
