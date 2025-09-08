@@ -6,6 +6,7 @@ const productSchema=mongoose.Schema({
     price:Number,
     company:String,
     desc:String,
-    rating:Number
+    rating:Number,
+    userId:String
 })
 module.exports=mongoose.model("products",productSchema)

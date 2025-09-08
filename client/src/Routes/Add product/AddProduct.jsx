@@ -1,7 +1,11 @@
 import React from 'react'
 import style from './AddProduct.module.css'
+import { IoArrowBackCircleSharp } from "react-icons/io5";
+import { IoIosArrowBack } from "react-icons/io";
+import{useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 const AddProduct = () => {
+  const navigate=useNavigate()
   
   const[pname,setPname]=useState("");
   const[price,setPrice]=useState("");
@@ -12,15 +16,18 @@ const AddProduct = () => {
 
   async function handleAddProduct(e){
     e.preventDefault();
+    let userId=await JSON.parse(localStorage.getItem('user'))._id;
+
     let data={
       name:pname,
       price:price,
       company:company,  
       desc:desc,
-      rating:rating
+      rating:rating,
+      userId:userId
     }
     setAddproduct(data);
-    console.log(data);
+    //console.log(data);
 
     try{
       let result=await fetch("http://localhost:5000/AddProduct",{
@@ -48,7 +55,9 @@ const AddProduct = () => {
       <div id={style.form_plate}>
 
         <div className={style.heading}>
-          <h1>Add Product</h1>
+          <button className={style.backbtn} onClick={()=>navigate('/')} ><IoIosArrowBack /> back</button>
+          <h1 className={style.title}>Add Product</h1>
+          
         </div>
 
         <form action="" className={style.addproduct_form} onSubmit={handleAddProduct}>

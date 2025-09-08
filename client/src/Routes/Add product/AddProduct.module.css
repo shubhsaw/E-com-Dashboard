@@ -58,9 +58,40 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .heading{
+    width: 90%;
     margin-bottom: 10px;
     margin-top: 20px;
     color:  rgb(86, 86, 210);
     text-shadow: 1px 1px 5px   rgb(110, 110, 182);
+    
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
 
+}
+
+.backbtn{
+    font-size: large;
+    
+    cursor: pointer;
+   /* flex-basis: 100px; */
+    color: rgb(100, 100, 203);
+    
+    background-color: transparent;
+    border: none;
+    /* for aligning text and icon */
+    display: flex;
+    align-items: center;
+}
+.backbtn:hover{
+    border-radius: 20px;
+    color: rgb(0, 71, 170);
+    background-color: rgb(222, 224, 224);
+    /* text-decoration: underline; */
+}
+.title{
+    flex: 1;              /* expands to take space */
+  text-align: center;   /* centers text in that space */
+  margin: 0;
 }
