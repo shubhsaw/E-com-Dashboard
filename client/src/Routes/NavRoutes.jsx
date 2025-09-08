@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import Product from './Products'
+
 // import AddProduct from './AddProduct'
 import UpdateProduct from './UpdateProduct'
 
@@ -10,6 +10,9 @@ import Signup from './Signup'
 import PrivateComponent from './PrivateComponent'
 import Login from './Login/Login'
 import AddProduct from './Add product/AddProduct'
+import Product from './Product/Products'
+import Products from './Product/Products'
+// import Product from '../../../server/product'
 const NavRoutes = () => {
   return (
     <>
@@ -18,7 +21,7 @@ const NavRoutes = () => {
         //Private Component
         <Route element={<PrivateComponent/>}>
         <Route path='/'element={<Home/>}/>
-        <Route path='/Product' element={<Product/>}/>
+        <Route path='/Products' element={<Products/>}/>
         <Route path="/AddProduct" element={<AddProduct/>}/>
         <Route path="/UpdateProduct" element={<UpdateProduct/>}/>
         <Route path="/" element={<Home/>} />

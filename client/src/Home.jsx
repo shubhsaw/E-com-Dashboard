@@ -19,7 +19,7 @@ const Home = () => {
 
         <div id='dashboard'>
           <img src={image} alt="logo" id='home_logo' />
-        <Link to="/Product">Products</Link>
+        <Link to="/Products">Products</Link>
         <Link to="/AddProduct">Add Product</Link>
         <Link to="/UpdateProduct">Update Product</Link> 
         
