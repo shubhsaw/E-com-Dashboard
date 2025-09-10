@@ -2,6 +2,8 @@ import React from "react";
 import style from './Products.module.css'
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import { MdDelete } from "react-icons/md";
+
 const Products = () => {
     const navigate = useNavigate()
     const [products, setProducts] = React.useState([]);
@@ -15,7 +17,16 @@ const Products = () => {
         setProducts(result);
         console.log(result);
     }
-
+async function deleteProduct(id){
+   let confirmare= confirm("Are you sure you want to delete this product?");
+   if(confirmare){
+    let result = await fetch(`http://localhost:5000/products/${id}`, {  
+        method:"delete"});
+     result= await result.json();
+     getProducts();
+   }
+    
+}
     return (
         <>
             <div id={style.product}>
@@ -32,6 +43,7 @@ const Products = () => {
                                 <th>Company Name</th>
                                 <th colSpan={2}>Description</th>
                                 <th>Rating</th>
+                                <th>Operations</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +55,7 @@ const Products = () => {
                                         <td>{item.company}</td>
                                         <td colSpan={2}>{item.desc}</td>
                                         <td>{item.rating}</td>
+                                        <td><button id={style.delbtn} onClick={()=>deleteProduct(item._id)}><MdDelete /></button></td>
                                     </tr>
                                 ))
                             ) : (
@@ -53,7 +66,7 @@ const Products = () => {
                                 </tr>
                             )}
                         </tbody>
-                    </table>
+                    </table> 
 
                 </div>
             </div>

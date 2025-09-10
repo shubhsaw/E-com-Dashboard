@@ -37,6 +37,10 @@ const AddProduct = () => {
       });
       result=await result.json();
       console.log(result);
+      if(result){
+        alert("Product added successfully");
+        // navigate('/products')
+      }
       
     }catch(err){
       console.log(err);

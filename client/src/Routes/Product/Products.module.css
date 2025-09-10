@@ -93,3 +93,15 @@
   color: #777;
   margin-top: 20px;
 }
+#delbtn{
+  background-color: rgb(246, 78, 78);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+}
