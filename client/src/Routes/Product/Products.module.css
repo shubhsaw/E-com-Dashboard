@@ -118,3 +118,24 @@
   font-size: larger;
   margin-right: 8px;
 }
+
+.searchContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 0;
+}
+
+.searchInput {
+  width: 250px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput:focus {
+  border: 1px solid #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
