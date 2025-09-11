@@ -105,3 +105,16 @@
   justify-content: center;
   font-size: larger;
 }
+#editbtn{
+  background-color: rgb(78, 153, 246);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  margin-right: 8px;
+}

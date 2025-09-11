@@ -3,6 +3,8 @@ import style from './Products.module.css'
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
+
 
 const Products = () => {
     const navigate = useNavigate()
@@ -55,7 +57,12 @@ async function deleteProduct(id){
                                         <td>{item.company}</td>
                                         <td colSpan={2}>{item.desc}</td>
                                         <td>{item.rating}</td>
-                                        <td><button id={style.delbtn} onClick={()=>deleteProduct(item._id)}><MdDelete /></button></td>
+                                        <td>
+                                            <span style={{ display: 'flex', gap: '10px' }}>
+                                            <button id={style.delbtn} onClick={()=>deleteProduct(item._id)}><MdDelete /></button>
+                                            <button id={style.editbtn} onClick={()=>navigate(`/UpdateProduct/${item._id}`)}><MdEdit /></button>
+                                            </span>
+                                        </td>
                                     </tr>
                                 ))
                             ) : (
