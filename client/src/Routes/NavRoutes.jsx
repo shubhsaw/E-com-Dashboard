@@ -24,6 +24,7 @@ const NavRoutes = () => {
         <Route path='/'element={<Home/>}/>
         <Route path='/Products' element={<Products/>}/>
         <Route path="/AddProduct" element={<AddProduct/>}/>
+        <Route path='/UpdateProduct' element={<Products/>}/>
         <Route path="/UpdateProduct/:id" element={<UpdateProduct/>}/>
         <Route path="/" element={<Home/>} />
         <Route path="/Profile" element={<Profile/>}/>
