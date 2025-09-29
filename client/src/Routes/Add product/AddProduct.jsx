@@ -33,6 +33,7 @@ const AddProduct = () => {
       let result=await fetch("http://localhost:5000/AddProduct",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
+        authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`,
         body:JSON.stringify(data)
       });
       result=await result.json();

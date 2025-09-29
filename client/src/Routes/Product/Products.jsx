@@ -14,7 +14,11 @@ const Products = () => {
     }, []);
 
     async function getProducts() {
-        let result = await fetch("http://localhost:5000/products");
+        let result = await fetch("http://localhost:5000/products", {
+            headers: {
+                authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
+        });
         result = await result.json();
         setProducts(result);
     }
@@ -23,7 +27,11 @@ const Products = () => {
         let confirmare = confirm("Are you sure you want to delete this product?");
         if (confirmare) {
             let result = await fetch(`http://localhost:5000/products/${id}`, {
-                method: "delete"
+                method: "delete",
+                headers: {
+                    authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+                }
+
             });
             result = await result.json();
             getProducts();
@@ -35,7 +43,11 @@ const Products = () => {
         setSearch(key);
 
         if (key) {
-            let result = await fetch(`http://localhost:5000/search/${key}`);
+            let result = await fetch(`http://localhost:5000/search/${key}`, {
+                headers: {
+                    authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+                }
+            });
             result = await result.json();
             setProducts(result);
         } else {

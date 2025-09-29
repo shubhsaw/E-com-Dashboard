@@ -32,9 +32,10 @@ const Login = () => {
             result=await result.json();
             //console.log(result);
             
-            if(result._id){
+            if(result.auth){
                 //without storing it to local storage you will be redirected to Sign up page
-                localStorage.setItem("user", JSON.stringify(result));
+                localStorage.setItem("user", JSON.stringify(result.user));
+                localStorage.setItem("token",JSON.stringify(result.auth))
                 navigate('/');
             }else{
                 alert(JSON.stringify(result))

@@ -37,7 +37,8 @@ const Signup = () => {
       console.log(result);
 
       //storing Data in localStorage
-      localStorage.setItem("user", JSON.stringify(result));
+      localStorage.setItem("user", JSON.stringify(result.newUser));
+      localStorage.setItem("token " ,JSON.stringify(result.auth))
 
       // redirect to Home page after successful signup
       if(result._id){

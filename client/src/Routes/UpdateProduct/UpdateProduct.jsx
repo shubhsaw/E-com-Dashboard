@@ -17,7 +17,11 @@ const UpdateProduct = () => {
   }, []);
 
   function fetchProductDetails() {
-    fetch(`http://localhost:5000/product/${params.id}`)
+    fetch(`http://localhost:5000/product/${params.id}`,{
+            headers:{
+                authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
+        })
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -42,7 +46,8 @@ const UpdateProduct = () => {
       method: 'put',
       body: JSON.stringify(product),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
     });
     result = await result.json();
